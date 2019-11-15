@@ -1,0 +1,16 @@
+jobs:
+  build:
+    filters:
+      tags:
+        only: /.*/
+      branches:
+        only: master
+    environment:
+      STAGE: one
+    executor: machine
+    parallelism: 3
+    steps:
+      - checkout
+      - run:
+          name: one
+          command: . .circleci/run.sh
